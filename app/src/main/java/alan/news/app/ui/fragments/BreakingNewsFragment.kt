@@ -13,6 +13,7 @@ import alan.news.app.ui.NewsViewModel
 import alan.news.app.util.Constants.Companion.QUERY_PAGE_SIZE
 import alan.news.app.util.Resource
 import android.widget.AbsListView
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_breaking_news.*
@@ -57,7 +58,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let {  message ->
-                        Log.e(TAG, "Ha ocurrido un error: $message")
+                        Toast.makeText(activity, "Ocurrio un error: $message", Toast.LENGTH_LONG).show()
                     }
                 }
 

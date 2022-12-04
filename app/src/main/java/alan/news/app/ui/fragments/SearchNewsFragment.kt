@@ -12,6 +12,7 @@ import alan.news.app.util.Constants.Companion.SEARCH_NEWS_TIME_DELAY
 import alan.news.app.util.Resource
 import android.util.Log
 import android.widget.AbsListView
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -78,7 +79,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let {  message ->
-                        Log.e(TAG, "Ha ocurrido un error: $message")
+                        Toast.makeText(activity, "Ocurrio un error: $message", Toast.LENGTH_LONG).show()
                     }
                 }
 
